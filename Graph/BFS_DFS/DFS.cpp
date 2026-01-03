@@ -1,21 +1,8 @@
 #include<bits/stdc++.h>
-#define     sf       scanf
-#define     pf       printf
-#define     ll       long long
-#define     sz       10001
-#define     pi       acos(-1.0)
-#define     ff       first
-#define     ss       second
-#define     pb       push_back
-#define     mp       make_pair
-#define     all(x)   x.begin(),x.end()
-
 using namespace std;
 
-/*----------------- Start Here ---------------------*/
-
-vector<int>G[sz];
-int Time,vis[sz],lev[sz],d[sz],f[sz];
+vector<int>G[100005];
+int Time,vis[100005],lev[100005],d[100005],f[100005];
 
 void dfs(int u)
 {
@@ -35,15 +22,15 @@ void dfs(int u)
 
 int main()
 {
-    int n,e,u,v,i,j,k;
+    int n,e,u,v;
     cin>>n>>e;
-    for(i=0;i<e;i++){
+    for(int i=0;i<e;i++){
         cin>>u>>v;
-        G[u].pb(v);
-        G[v].pb(u);
+        G[u].push_back(v);
+        G[v].push_back(u);
     }
 
-    for(i=1;i<=n;i++){
+    for(int i=1;i<=n;i++){
         if(vis[i]==0) dfs(i);
     }
 

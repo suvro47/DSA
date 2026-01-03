@@ -1,28 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define sz 100005
-#define ERROR 1e-9
-#define PI acos(-1.0)
-#define MOD 10000007
-#define INF 0x3f3f3f3f
-
-#define F first
-#define S second
-#define pb push_back
-#define mk make_pair
-#define all(x) x.begin(),x.end()
-
-typedef long long  ll;
-typedef long long  ll;
-typedef pair<ll,ll> pii;
-typedef pair<char,ll> pci;
-typedef pair<string,ll> psi;
-
-vector<int>G[sz];
+vector<int>G[100005];
 queue<int>Q;
 
-int n,e,i,j,u,v,lev[sz],vis[sz],s,d,p[sz];
+int n,e,u,v,s,d,vis[100005],lev[100005],p[100005];
 
 void BFS(int s)
 {
@@ -46,8 +28,9 @@ void BFS(int s)
 
 void path(int d)
 {
-    if(d==s)
+    if(d==s){
         return;
+    }
     else{
         path(p[d]);
         cout<<p[d]<<' ';
@@ -57,14 +40,25 @@ void path(int d)
 int main()
 {
     cin>>n>>e;
-    for(i=1;i<=e;i++){
+
+    for(int i=1;i<=e;i++){
         cin>>u>>v;
         G[u].push_back(v);
         G[v].push_back(u);
     }
+
     cin>>s>>d;
+
     BFS(s);
     path(d);
     cout<<d<<endl;
     return 0;
 }
+
+
+//5 4
+//1 5
+//1 3
+//5 2
+//5 4
+//1
