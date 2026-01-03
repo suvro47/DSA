@@ -13,8 +13,10 @@ void BFS(int s)
     Q.push(s);
 
     while(!Q.empty()){
+
         u=Q.front();
         Q.pop();
+
         for(int v:G[u]){
             if(!vis[v]){
                 lev[v]=lev[u]+1;

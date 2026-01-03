@@ -2,12 +2,10 @@
 using namespace std;
 
 vector<int>G[100005];
-int Time,vis[100005],lev[100005],d[100005],f[100005];
+int vis[100005],lev[100005];
 
 void dfs(int u)
 {
-    Time++;
-    d[u] = Time;
     vis[u] = 1;
 
     for(int v:G[u]){
@@ -16,8 +14,6 @@ void dfs(int u)
             dfs(v);
         }
     }
-    Time++;
-    f[u] = Time;
 }
 
 int main()
